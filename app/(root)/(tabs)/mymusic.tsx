@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-const homePage = () => {
+const mymusic = () => {
   return (
     <View>
-      <Text>HomePage</Text>
+      <Text>My Music</Text>
     </View>
   );
 };
 
-export default homePage;
+export default mymusic;

@@ -1,12 +1,12 @@
 import { View, Text } from "react-native";
 import React from "react";
 
-const logIn = () => {
+const myfav = () => {
   return (
     <View>
-      <Text>Log In</Text>
+      <Text>My Favourite</Text>
     </View>
   );
 };
 
-export default logIn;
+export default myfav;
