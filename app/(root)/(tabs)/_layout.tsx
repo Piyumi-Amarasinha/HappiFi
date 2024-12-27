@@ -1,4 +1,10 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  ImageSourcePropType,
+} from "react-native";
 import React from "react";
 import { Tabs } from "expo-router";
 import icons from "@/constants/icons";
@@ -62,12 +68,12 @@ const TabsLayout = () => {
       />
 
       <Tabs.Screen
-        name="myfav"
+        name="setting"
         options={{
-          title: "Fav",
+          title: "Settings",
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} icon={icons.heart} title="Fav" />
+            <TabIcon focused={focused} icon={icons.setting} title="Setting" />
           ),
         }}
       />

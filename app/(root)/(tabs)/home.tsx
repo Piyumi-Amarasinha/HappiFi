@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import images from "@/constants/images";
 import EmptyButton from "@/components/EmptyButton";
+import { Link } from "expo-router";
 
 const home = () => {
   const handleLogin = () => {
@@ -25,8 +26,14 @@ const home = () => {
         style={styles.backgroundImage}
         resizeMode="cover"
       >
-        <View style={styles.container}>
-          <View>
+        <View style={styles.maincontainer}>
+          <View style={{ flex: 1, backgroundColor: "" }}>
+            <Link href="/sign-in" style={styles.links}>
+              Sign In
+            </Link>
+          </View>
+
+          <View style={{ flex: 1, backgroundColor: "" }}>
             <Text style={styles.heading}>Welcome to HappiFi!</Text>
           </View>
           <View style={styles.contentContainer}>
@@ -38,9 +45,16 @@ const home = () => {
                 Listen to your favorite music for free, anywhere.
               </Text>
             </View>
+            <View
+              style={{
+                flex: 1,
+                bottom: -60,
+                justifyContent: "space-evenly",
+              }}
+            >
+              <EmptyButton onPress={handleLogin} title="Password" />
+            </View>
           </View>
-
-          <EmptyButton onPress={handleLogin} title="Password" />
         </View>
       </ImageBackground>
     </SafeAreaView>
@@ -55,14 +69,16 @@ const styles = StyleSheet.create({
     flex: 1,
     position: "relative",
   },
-  container: {
-    flex: 3,
+  maincontainer: {
+    flex: 1,
     justifyContent: "space-evenly",
+    // backgroundColor: "blue",
   },
   contentContainer: {
-    flex: 0.45,
-    justifyContent: "flex-start",
+    flex: 6,
     alignItems: "center",
+    justifyContent: "flex-start",
+    // backgroundColor: "white",
   },
   overlay: {
     padding: 20,
@@ -78,16 +94,22 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: 24,
-    color: "#000",
+    color: "#021526",
     textAlign: "center",
+    justifyContent: "flex-start",
     fontWeight: "bold",
     lineHeight: 35,
   },
   heading: {
-    top: -30,
+    color: "#021526",
     fontWeight: "bold",
     fontSize: 30,
     alignSelf: "center",
+  },
+  links: {
+    fontWeight: "500",
+    textAlign: "right",
+    margin: 25,
   },
 });
 

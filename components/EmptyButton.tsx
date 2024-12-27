@@ -35,16 +35,17 @@ const EmptyButton = ({ onPress, title }) => {
 
 const styles = StyleSheet.create({
   bottomContainer: {
-    alignSelf: "center",
-    alignItems: "center",
-    justifyContent: "space-between",
-    backgroundColor: "white",
-    shadowOpacity: 2,
     width: 280,
     height: 50,
     borderRadius: 15,
-    borderColor: "pink",
     borderWidth: 2,
+    borderColor: "pink",
+    backgroundColor: "white",
+    alignSelf: "center",
+    alignItems: "center",
+    justifyContent: "space-between",
+
+    shadowOpacity: 2,
     elevation: 2,
     flexDirection: "row",
   },
