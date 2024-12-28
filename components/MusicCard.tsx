@@ -1,5 +1,5 @@
-import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import React, { useState } from "react";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Card } from "react-native-elements";
 
 // Define the type for the props
@@ -8,6 +8,7 @@ interface MusicCardProps {
   description: string;
   imageSource: any;
   favoritIcon: any;
+  filledFavoritIcon: any;
 }
 
 const MusicCard: React.FC<MusicCardProps> = ({
@@ -15,7 +16,14 @@ const MusicCard: React.FC<MusicCardProps> = ({
   description,
   imageSource,
   favoritIcon,
+  filledFavoritIcon,
 }) => {
+  const [isFavorited, setIsFavorited] = useState(false);
+
+  const handleFavoriteToggle = () => {
+    setIsFavorited((prev) => !prev);
+  };
+
   return (
     <Card containerStyle={styles.card}>
       <View style={styles.cardContent}>
@@ -25,8 +33,12 @@ const MusicCard: React.FC<MusicCardProps> = ({
           <Text style={styles.cardTitle}>{title}</Text>
           <Text style={styles.cardDescription}>{description}</Text>
         </View>
-
-        <Image source={favoritIcon} style={styles.favoritIcon} />
+        <TouchableOpacity onPress={handleFavoriteToggle}>
+          <Image
+            source={isFavorited ? filledFavoritIcon : favoritIcon}
+            style={styles.favoritIcon}
+          />
+        </TouchableOpacity>
       </View>
     </Card>
   );
@@ -35,11 +47,11 @@ const MusicCard: React.FC<MusicCardProps> = ({
 const styles = StyleSheet.create({
   card: {
     flex: 1,
-    flexDirection: "row",
     borderRadius: 15,
     elevation: 5,
     borderColor: "pink",
     width: "100%",
+    paddingVertical: 5,
   },
   cardContent: {
     flexDirection: "row",
@@ -47,14 +59,13 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   cardImage: {
-    width: 75,
-    height: 75,
-    borderRadius: 30,
-    alignSelf: "center",
-    justifyContent: "space-between",
-    // backgroundColor: "blue",
+    width: 70,
+    height: 70,
+    borderRadius: 20,
   },
   textContainer: {
+    flex: 1,
+    marginHorizontal: 10,
     justifyContent: "center",
   },
   cardTitle: {
@@ -67,11 +78,9 @@ const styles = StyleSheet.create({
     color: "#666",
   },
   favoritIcon: {
-    width: 20,
-    height: 20,
-    alignSelf: "center",
-    justifyContent: "center",
-    // backgroundColor: "pink",
+    width: 25,
+    height: 25,
+    marginHorizontal: 10,
   },
 });
 

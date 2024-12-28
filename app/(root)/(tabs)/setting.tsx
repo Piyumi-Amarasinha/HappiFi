@@ -15,16 +15,12 @@ const setting = () => {
           icon={require("../../../assets/icons/sound.png")}
         />
         <SettingCard
-          title="sound"
+          title="Theme"
           icon={require("../../../assets/icons/theme.png")}
         />
         <SettingCard
-          title="sound"
+          title="Logout"
           icon={require("../../../assets/icons/logout.png")}
-        />
-        <SettingCard
-          title="sound"
-          icon={require("../../../assets/icons/sound.png")}
         />
       </View>
     </SafeAreaView>

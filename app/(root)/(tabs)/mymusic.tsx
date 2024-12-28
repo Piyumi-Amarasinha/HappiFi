@@ -6,65 +6,91 @@ import CustomSearchBar from "../../../components/CustomSearchBar";
 
 const AllMusic = () => (
   <ScrollView contentContainerStyle={styles.scene}>
-    <MusicCard
-      title="Friend"
-      description="Ann Marie"
-      imageSource={require("../../../assets/images/track01.jpeg")}
-      favoritIcon={require("../../../assets/icons/heart1.png")}
-    />
-    <MusicCard
-      title="Feuior"
-      description="Will Stock"
-      imageSource={require("../../../assets/images/track02.jpeg")}
-      favoritIcon={require("../../../assets/icons/heart1.png")}
-    />
-    <MusicCard
-      title="Mariana"
-      description="Jewish Ann"
-      imageSource={require("../../../assets/images/track03.jpeg")}
-      favoritIcon={require("../../../assets/icons/heart1.png")}
-    />
-    <MusicCard
-      title="Budapesht"
-      description="Kaula Pant"
-      imageSource={require("../../../assets/images/track04.jpeg")}
-      favoritIcon={require("../../../assets/icons/heart1.png")}
-    />
-    <MusicCard
-      title="New York"
-      description="Lady Gaga"
-      imageSource={require("../../../assets/images/track05.jpeg")}
-      favoritIcon={require("../../../assets/icons/heart1.png")}
-    />
-    <MusicCard
-      title="Move Move"
-      description="Likush Shie"
-      imageSource={require("../../../assets/images/track06.jpeg")}
-      favoritIcon={require("../../../assets/icons/heart1.png")}
-    />
+    <View
+      style={{
+        flex: 1,
+        width: "100%",
+        alignItems: "center",
+      }}
+    >
+      <MusicCard
+        title="Friend"
+        description="Ann Marie"
+        imageSource={require("../../../assets/images/track01.jpeg")}
+        favoritIcon={require("../../../assets/icons/heart1.png")}
+        filledFavoritIcon={require("../../../assets/icons/pink heart-30.png")}
+      />
+      <MusicCard
+        title="Feuior"
+        description="Will Stock"
+        imageSource={require("../../../assets/images/track02.jpeg")}
+        favoritIcon={require("../../../assets/icons/heart1.png")}
+        filledFavoritIcon={require("../../../assets/icons/pink heart-30.png")}
+      />
+      <MusicCard
+        title="Mariana"
+        description="Jewish Ann"
+        imageSource={require("../../../assets/images/track03.jpeg")}
+        favoritIcon={require("../../../assets/icons/heart1.png")}
+        filledFavoritIcon={require("../../../assets/icons/pink heart-30.png")}
+      />
+      <MusicCard
+        title="Budapesht"
+        description="Kaula Pant"
+        imageSource={require("../../../assets/images/track04.jpeg")}
+        favoritIcon={require("../../../assets/icons/heart1.png")}
+        filledFavoritIcon={require("../../../assets/icons/pink heart-30.png")}
+      />
+      <MusicCard
+        title="New York"
+        description="Lady Gaga"
+        imageSource={require("../../../assets/images/track05.jpeg")}
+        favoritIcon={require("../../../assets/icons/heart1.png")}
+        filledFavoritIcon={require("../../../assets/icons/pink heart-30.png")}
+      />
+      <MusicCard
+        title="Move Move"
+        description="Likush Shie"
+        imageSource={require("../../../assets/images/track06.jpeg")}
+        favoritIcon={require("../../../assets/icons/heart1.png")}
+        filledFavoritIcon={require("../../../assets/icons/pink heart-30.png")}
+      />
+    </View>
   </ScrollView>
 );
 
 const FavoriteMusic = () => (
   <ScrollView contentContainerStyle={styles.scene}>
-    <MusicCard
-      title="Friend"
-      description="Ann Marie"
-      imageSource={require("../../../assets/images/track01.jpeg")}
-      favoritIcon={require("../../../assets/icons/play.png")}
-    />
-    <MusicCard
-      title="Feuior"
-      description="Will Stock"
-      imageSource={require("../../../assets/images/track02.jpeg")}
-      favoritIcon={require("../../../assets/icons/play.png")}
-    />
-    <MusicCard
-      title="Mariana"
-      description="Jewish Ann"
-      imageSource={require("../../../assets/images/track03.jpeg")}
-      favoritIcon={require("../../../assets/icons/play.png")}
-    />
+    <View
+      style={{
+        flex: 0.5,
+        width: "100%",
+        alignItems: "center",
+      }}
+    >
+      <MusicCard
+        title="Friend"
+        description="Ann Marie"
+        imageSource={require("../../../assets/images/track01.jpeg")}
+        favoritIcon={require("../../../assets/icons/play.png")}
+        filledFavoritIcon={require("../../../assets/icons/pause.png")}
+      />
+      <MusicCard
+        title="Friend"
+        description="Ann Marie"
+        imageSource={require("../../../assets/images/track01.jpeg")}
+        favoritIcon={require("../../../assets/icons/play.png")}
+        filledFavoritIcon={require("../../../assets/icons/pause.png")}
+      />
+
+      <MusicCard
+        title="Mariana"
+        description="Jewish Ann"
+        imageSource={require("../../../assets/images/track03.jpeg")}
+        favoritIcon={require("../../../assets/icons/play.png")}
+        filledFavoritIcon={require("../../../assets/icons/pause.png")}
+      />
+    </View>
   </ScrollView>
 );
 
@@ -121,7 +147,6 @@ const styles = StyleSheet.create({
   scene: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
   },
   titleText: {
     fontSize: 24,
