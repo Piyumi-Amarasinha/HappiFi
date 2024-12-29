@@ -1,11 +1,12 @@
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
   Image,
   StyleSheet,
   ImageSourcePropType,
+  Keyboard,
 } from "react-native";
-import React from "react";
 import { Tabs } from "expo-router";
 import icons from "@/constants/icons";
 
@@ -31,6 +32,29 @@ const TabIcon = ({
 );
 
 const TabsLayout = () => {
+  const [keyboardVisible, setKeyboardVisible] = useState(false);
+
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener(
+      "keyboardDidShow",
+      () => {
+        setKeyboardVisible(true); // When keyboard shows, hide tab bar
+      }
+    );
+    const keyboardDidHideListener = Keyboard.addListener(
+      "keyboardDidHide",
+      () => {
+        setKeyboardVisible(false); // When keyboard hides, show tab bar
+      }
+    );
+
+    // Clean up listeners
+    return () => {
+      keyboardDidHideListener.remove();
+      keyboardDidShowListener.remove();
+    };
+  }, []);
+
   return (
     <Tabs
       screenOptions={{
@@ -42,6 +66,7 @@ const TabsLayout = () => {
           borderTopWidth: 1,
           height: 70,
           justifyContent: "center",
+          display: keyboardVisible ? "none" : "flex",
         },
       }}
     >

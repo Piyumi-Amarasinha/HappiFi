@@ -1,25 +1,55 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, StyleSheet, Alert } from "react-native";
+import { useRouter } from "expo-router";
 import CustomButton from "../components/Button";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const SignIn = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const router = useRouter();
 
-  const handleSignIn = () => {
-    if (username && password) {
-      Alert.alert(
-        "Sign-In",
-        `Username: ${username}\nPassword: ${"*".repeat(password.length)}`
-      );
-    } else {
-      Alert.alert("Error", "Please fill in both fields.");
+  const handleSignIn = async () => {
+    if (!username || !password || !confirmPassword) {
+      Alert.alert("Error", "Please fill in all fields.");
+      return;
+    }
+
+    if (password.length < 6) {
+      Alert.alert("Error", "Passwords must be at least 6 characters long.");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      Alert.alert("Error", "Passwords do not match.");
+      return;
+    }
+
+    try {
+      // Store user credentials in AsyncStorage
+      await AsyncStorage.setItem("username", username);
+      await AsyncStorage.setItem("password", password);
+
+      // Also store in global temp variable if needed
+      global.tempUser = { username, password };
+
+      setUsername("");
+      setPassword("");
+      setConfirmPassword("");
+
+      Alert.alert("Success", "Sign-In successful!", [
+        { text: "OK", onPress: () => router.push("/(root)/(tabs)/home") },
+      ]);
+    } catch (error) {
+      console.error("Error storing credentials:", error);
+      Alert.alert("Error", "Failed to save credentials. Please try again.");
     }
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Sign In</Text>
+      <Text style={styles.title}>Sign up</Text>
       <TextInput
         style={styles.input}
         placeholder="Username"
@@ -33,7 +63,14 @@ const SignIn = () => {
         onChangeText={setPassword}
         secureTextEntry
       />
-      <CustomButton text="Sign In" onPress={handleSignIn} />
+      <TextInput
+        style={styles.input}
+        placeholder="Confirm Password"
+        value={confirmPassword}
+        onChangeText={setConfirmPassword}
+        secureTextEntry
+      />
+      <CustomButton text="Sign up" onPress={handleSignIn} />
     </View>
   );
 };
@@ -62,4 +99,5 @@ const styles = StyleSheet.create({
     fontStyle: "italic",
   },
 });
+
 export default SignIn;

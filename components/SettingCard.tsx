@@ -1,21 +1,24 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Card } from "react-native-elements";
 
 interface SettingCardProps {
   title: string;
   icon: any;
+  onPress: () => void;
 }
 
-const SettingCard: React.FC<SettingCardProps> = ({ title, icon }) => {
+const SettingCard: React.FC<SettingCardProps> = ({ title, icon, onPress }) => {
   return (
-    <Card containerStyle={styles.card}>
-      <View style={styles.cardContent}>
-        <Image source={icon} style={styles.icon} />
+    <TouchableOpacity onPress={onPress}>
+      <Card containerStyle={styles.card}>
+        <View style={styles.cardContent}>
+          <Image source={icon} style={styles.icon} />
 
-        <Text style={styles.cardTitle}>{title}</Text>
-      </View>
-    </Card>
+          <Text style={styles.cardTitle}>{title}</Text>
+        </View>
+      </Card>
+    </TouchableOpacity>
   );
 };
 

@@ -1,22 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   SafeAreaView,
   Text,
   View,
   StyleSheet,
   ImageBackground,
+  Alert,
 } from "react-native";
 import images from "@/constants/images";
 import EmptyButton from "@/components/EmptyButton";
 import { Link } from "expo-router";
+import { useRouter } from "expo-router";
 
-const home = () => {
+const Home: React.FC = () => {
+  const [password, setPassword] = useState<string>("");
+  const [loginAttempted, setLoginAttempted] = useState<boolean>(false);
+  const router = useRouter();
+
   const handleLogin = () => {
-    console.log("Log-In Button Pressed");
-  };
+    if (!global.tempUser) {
+      Alert.alert(
+        "Sign Up Required",
+        "You should sign up first before logging in.",
+        [
+          {
+            text: "Sign Up",
+            onPress: () => router.push("/sign-in"),
+          },
+          {
+            text: "Cancel",
+            style: "cancel",
+          },
+        ]
+      );
+      return;
+    }
 
-  const handlesignin = () => {
-    console.log("Sign-In Button Pressed");
+    if (global.tempUser.password === password) {
+      setPassword("");
+      setLoginAttempted(true);
+      router.push("/(root)/(tabs)/mymusic");
+    } else {
+      Alert.alert("Error", "Incorrect password. Please try again.");
+    }
   };
 
   return (
@@ -29,7 +55,7 @@ const home = () => {
         <View style={styles.maincontainer}>
           <View style={{ flex: 1, backgroundColor: "" }}>
             <Link href="/sign-in" style={styles.links}>
-              Sign In
+              Sign Up
             </Link>
           </View>
 
@@ -52,7 +78,13 @@ const home = () => {
                 justifyContent: "space-evenly",
               }}
             >
-              <EmptyButton onPress={handleLogin} title="Password" />
+              <EmptyButton
+                key={loginAttempted ? "loggedIn" : "loggedOut"}
+                onPress={handleLogin}
+                title="Password"
+                password={password}
+                setPassword={setPassword}
+              />
             </View>
           </View>
         </View>
@@ -72,13 +104,11 @@ const styles = StyleSheet.create({
   maincontainer: {
     flex: 1,
     justifyContent: "space-evenly",
-    // backgroundColor: "blue",
   },
   contentContainer: {
     flex: 6,
     alignItems: "center",
     justifyContent: "flex-start",
-    // backgroundColor: "white",
   },
   overlay: {
     padding: 20,
@@ -113,4 +143,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default home;
+export default Home;

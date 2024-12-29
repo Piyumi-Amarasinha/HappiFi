@@ -10,16 +10,17 @@ import {
 } from "react-native";
 import icons from "@/constants/icons";
 
-const EmptyButton = ({ onPress, title }) => {
-  const [inputValue, setInputValue] = useState("");
+const EmptyButton = ({ onPress, title, password, setPassword }) => {
+  // const [password, setPassword] = useState("");
 
   return (
     <View style={styles.bottomContainer}>
       <TextInput
         style={styles.textInput}
         placeholder={title}
-        value={inputValue}
-        onChangeText={setInputValue}
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry
       />
 
       <TouchableOpacity onPress={onPress}>
