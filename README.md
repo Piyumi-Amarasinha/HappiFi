@@ -4,6 +4,11 @@
 
 This is a **React Native** mobile application designed for music lovers. Users can sign up, log in, browse a vast collection of songs, and add their favorites. With an intuitive interface and smooth navigation, the app offers an enjoyable music experience.  
 
+Here’s My New Mobile App Demo:
+
+
+![HappiFi](https://github.com/Piyumi-Amarasinha/HappiFi/blob/1d4fed64f81e4fe268415fb8bc8790dc8c2f68e5/HappiFi-demo.jpg)
+
 ## 🚀 **Features**  
 
 ✅ **User Authentication** – Sign up and log in securely  
