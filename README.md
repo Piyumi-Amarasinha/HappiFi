@@ -1,50 +1,47 @@
 # Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# 🎵 **Entertainment App – Mobile Music Experience**  
 
-## Get started
+This is a **React Native** mobile application designed for music lovers. Users can sign up, log in, browse a vast collection of songs, and add their favorites. With an intuitive interface and smooth navigation, the app offers an enjoyable music experience.  
 
-1. Install dependencies
+## 🚀 **Features**  
 
+✅ **User Authentication** – Sign up and log in securely  
+✅ **Music Library** – Browse and explore all available songs  
+✅ **Favorites Section** – Add and manage your favorite songs  
+✅ **Settings Tab** – Customize app preferences through the settings menu  
+✅ **Bottom Tab Navigation** – Three main sections:  
+   - 🎶 **All** – View the full list of songs  
+   - ❤️ **Favorites** – Access your saved songs  
+   - ⚙️ **Settings** – Modify app preferences  
+
+## 🛠 **Technologies Used**  
+
+- **React Native** – For cross-platform mobile development  
+- **TypeScript** – Ensures type safety and maintainability  
+- **React Navigation** – Handles smooth in-app navigation  
+- **State Management** – Efficient state handling for seamless UI updates  
+
+## 📂 **Installation & Setup**  
+
+1. Clone the repository:  
+   ```bash
+   git clone <your-repo-link>
+   ```
+2. Navigate to the project directory:  
+   ```bash
+   cd entertainment-app
+   ```
+3. Install dependencies:  
    ```bash
    npm install
    ```
-
-2. Start the app
-
+4. Run the app on an emulator or device:  
    ```bash
-    npx expo start
-   ```
+   npm run android   # For Android  
+   npm run ios       # For iOS (Mac only)  
+   ```  
 
-In the output, you'll find options to open the app in a
+## 📄 **License**  
+This project is open-source and available under the **MIT License**.  
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
